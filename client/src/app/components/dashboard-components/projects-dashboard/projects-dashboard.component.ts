@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-projects-dashboard',
@@ -6,5 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./projects-dashboard.component.css']
 })
 export class ProjectsDashboardComponent {
+  constructor(){}
+  
+    files: File[] = [];
 
+    onSelect(event:any) {
+      console.log(event);
+      this.files.push(...event.addedFiles);
+    }
+  
+    onRemove(event:any) {
+      console.log(event);
+      this.files.splice(this.files.indexOf(event), 1);
+    }
+  
 }

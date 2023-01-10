@@ -1,6 +1,6 @@
-<div class="flex h-full">
+<div class="flex">
     <app-sidenav (navClicked)="setNavElements($event)"></app-sidenav>
-    <div [ngSwitch]="navElements" class="h-full w-full bg-slate-100 grow flex-col">
+    <div [ngSwitch]="navElements" class="h-full min-h-screen w-full xl:pl-80 lg:pl-48 pb-2 bg-slate-100 grow flex-col">
         
             <div *ngSwitchCase="'basic-info'">
                 <app-basic-info-dashboard ></app-basic-info-dashboard>
@@ -20,10 +20,6 @@
 
             <div *ngSwitchCase="'projects'">
                 <app-projects-dashboard></app-projects-dashboard>
-            </div>
-        
-            <div *ngSwitchCase="'contact'">
-                <app-contact-form-dashboard></app-contact-form-dashboard>
             </div>
         
     </div>

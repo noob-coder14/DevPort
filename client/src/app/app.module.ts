@@ -7,7 +7,6 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { WebViewComponent } from './pages/web-view/web-view.component';
 import { HrClientComponent } from './pages/hr-client/hr-client.component';
 import { BasicInfoDashboardComponent } from './components/dashboard-components/basic-info-dashboard/basic-info-dashboard.component';
-import { ContactFormDashboardComponent } from './components/dashboard-components/contact-form-dashboard/contact-form-dashboard.component';
 import { EducationsDashboardComponent } from './components/dashboard-components/educations-dashboard/educations-dashboard.component';
 import { ExperiencesDashboardComponent } from './components/dashboard-components/experiences-dashboard/experiences-dashboard.component';
 import { ProjectsDashboardComponent } from './components/dashboard-components/projects-dashboard/projects-dashboard.component';
@@ -23,7 +22,8 @@ import { ExperiencesWebComponent } from './components/web-view-components/experi
 import { ProjectsWebComponent } from './components/web-view-components/projects-web/projects-web.component';
 import { UserAccountsWebComponent } from './components/web-view-components/user-accounts-web/user-accounts-web.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { NgxDropzoneModule } from 'ngx-dropzone';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,11 +31,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     WebViewComponent,
     HrClientComponent,
     BasicInfoDashboardComponent,
-    ContactFormDashboardComponent,
     EducationsDashboardComponent,
     ExperiencesDashboardComponent,
     ProjectsDashboardComponent,
     SidenavComponent,
+    
     UserAccountsDashboardComponent,
     FiltersComponent,
     ResultsComponent,
@@ -45,12 +45,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     EducationsWebComponent,
     ExperiencesWebComponent,
     ProjectsWebComponent,
-    UserAccountsWebComponent
+    UserAccountsWebComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    NgxDropzoneModule
   ],
   providers: [],
   bootstrap: [AppComponent]
