@@ -1,27 +1,22 @@
-const express = require('express')
-const app = express()
-const port = 3000
-const cors = require('cors')
-const mongoose = require('mongoose')
-var bodyParser = require('body-parser')
-var router = express.Router()
+const express = require('express');
+const cors = require('cors');
+const mongoose = require('mongoose');
+const router = require('./router');
+const app = express();
+const PORT = 3000;
 
-const webViewRoutes = require('./router/webViewRoutes')
-const hrClientRoutes = require('./router/hrClientRoutes')
-const dashboardRoutes = require('./router/dashboardRoutes')
 
-app.use(bodyParser.json({ limit: '30mb', extended: true }))
-app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }))
 app.use(cors());
+app.use(express.json());
+app.use(router);
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
 
-// app.use('/dasboard', dashboardRoutes)
-// app.use('/webview', webViewRoutes)
-// app.use('/hr', hrClientRoutes)
-
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+(async function bootstrap () {
+  try {
+    await mongoose.connect('mongodb+srv://shuhat:shuhat234@newcluster.adznrpo.mongodb.net/?retryWrites=true&w=majority');
+    console.log('\nConnected to DB.');
+    app.listen(PORT, () => console.log(`Server is listening on port ${PORT}.`));
+  } catch (error) {
+    console.log(error);
+  }
+})();
