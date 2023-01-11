@@ -1,5 +1,11 @@
 import { Component } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormArray,
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { ServiceService } from 'src/app/services/service.service';
 import { ActivatedRoute } from '@angular/router';
 import { profile } from './dashboard';
@@ -7,21 +13,23 @@ import { profile } from './dashboard';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent {
-
-  profileInfo! : any;
-
+  profileInfo!: any;
+  navElements = 'basic-info';
   defaultEmail = '';
+  profileID: String="";
 
   profileForm = new FormGroup({
-
     basicInfo: new FormGroup({
-      fullname:new FormControl('',[Validators.required,Validators.minLength(4)]),
-      email:new FormControl(''),
-      careerObj:new FormControl(''),
-      pphoto: new FormControl(''),
+      fullname: new FormControl('', [
+        Validators.required,
+        Validators.minLength(4),
+      ]),
+      email: new FormControl(''),
+      careerObj: new FormControl(''),
+      // pphoto: new FormControl(''),
     }),
 
     userAccInfo: new FormGroup({
@@ -34,14 +42,12 @@ export class DashboardComponent {
       eduLevel1: new FormControl(''),
       instName1: new FormControl(''),
       eduDescription1: new FormControl(''),
-
       eduLevel2: new FormControl(''),
       instName2: new FormControl(''),
       eduDescription2: new FormControl(''),
-
       eduLevel3: new FormControl(''),
       instName3: new FormControl(''),
-      eduDescription3: new FormControl('')
+      eduDescription3: new FormControl(''),
     }),
 
     experiences: new FormGroup({
@@ -58,7 +64,7 @@ export class DashboardComponent {
       companyName3: new FormControl(''),
       jobRole3: new FormControl(''),
       // job_tags: new FormControl(''),
-      jobDescription3: new FormControl('')
+      jobDescription3: new FormControl(''),
     }),
 
     projects: new FormGroup({
@@ -75,54 +81,48 @@ export class DashboardComponent {
       projectTitle3: new FormControl(''),
       demovideo3: new FormControl(''),
       // project_tags: new FormControl(''),
-      projectDescription3: new FormControl('')
+      projectDescription3: new FormControl(''),
     }),
+  });
 
-  })
+  data: any;
+  value: any;
 
-  data: any
-  value: any
-  
-  constructor(private formBuilder:FormBuilder, private profileData:ServiceService, private router:ActivatedRoute ){
-    // this.data = this.profileForm
-    
+  constructor(
+    private formBuilder: FormBuilder,
+    private profileData: ServiceService,
+    private router: ActivatedRoute
+  ) {}
+
+  ngOnInit(): void {
+    this.profileID = this.router.snapshot.params['id'];
+    console.log("Profile ID : ",this.profileID)
+    this.getProfile();
   }
 
-  
-  
-  
-  navElements = "basic-info"
-  setNavElements(clickedItem:string){
-    this.navElements = clickedItem
+  setNavElements(clickedItem: string) {
+    this.navElements = clickedItem;
   }
 
-  profileID:String = this.router.snapshot.params['id']
-
-  getProfile():void{
-    this.profileData.getProfileData(this.profileID).subscribe(res=> {
-      this.profileInfo = res;
-      console.log(res)
-      // this.profileForm.get('basicInfo.email')?.setValue(res.email);
-    })
-  }
-  
-  ngOnInit():void{
-    // this.getProfile()
-    // console.log(this.profileID)
-    // console.log(this.profileData.getProfileData())
-    // console.log(this.profileForm)
-    // this.profileForm.valueChanges.subscribe(form=>{
-    //   console.log(form)
-    // })
+  getProfile(): void {
+    this.profileData
+      .getProfileData(this.profileID)
+      .subscribe((res: any) => {
+        this.profileInfo = res;
+        console.log('User Profile Data : ', res);
+        this.profileForm.patchValue(res);
+        // this.profileForm.get('basicInfo.email')?.setValue(res.email);
+      });
   }
 
-  
-
-  handleSubmit(){
-    
-      // console.log(this.profileForm.value)
+  handleSubmit() {
+    // console.log(this.profileForm.value)
+    let finalFormValue: any = this.profileForm.value;
+    // console.log(JSON.stringify(finalFormValue, undefined, 3));
+    this.profileData
+      .updateProfileInformation(this.profileID, finalFormValue)
+      .subscribe((res) => {
+        alert('Profile Information Successfully Updated');
+      });
   }
-
 }
-
-
