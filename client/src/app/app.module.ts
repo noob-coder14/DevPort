@@ -24,6 +24,7 @@ import { UserAccountsWebComponent } from './components/web-view-components/user-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgxDropzoneModule } from 'ngx-dropzone';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +36,6 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
     ExperiencesDashboardComponent,
     ProjectsDashboardComponent,
     SidenavComponent,
-    
     UserAccountsDashboardComponent,
     FiltersComponent,
     ResultsComponent,
