@@ -14,6 +14,7 @@ async function getAllProfiles(req, res) {
 
 async function getsingleProfile(req, res) {
   try {
+    const {id} = req.params
     const profile = await Profile.findById(id);
     res.status(200);
     res.send(profile);

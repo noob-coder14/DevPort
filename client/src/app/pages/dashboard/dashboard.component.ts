@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ServiceService } from 'src/app/services/service.service';
+import { ActivatedRoute } from '@angular/router';
+import { profile } from './dashboard';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,7 +14,7 @@ export class DashboardComponent {
   profileForm = new FormGroup({
 
     basicInfo: new FormGroup({
-      fullname:new FormControl('',[Validators.required]),
+      fullname:new FormControl('',[Validators.required,Validators.minLength(4)]),
       email:new FormControl(''),
       careerObj:new FormControl(''),
       pphoto: new FormControl(''),
@@ -38,30 +41,74 @@ export class DashboardComponent {
     }),
 
     experiences: new FormGroup({
-      companyName: new FormControl(''),
-      jobRole: new FormControl(''),
-      job_tags: new FormControl(''),
-      jobDescription: new FormControl(''),
+      companyName1: new FormControl(''),
+      jobRole1: new FormControl(''),
+      // job_tags: new FormControl(''),
+      jobDescription1: new FormControl(''),
+
+      companyName2: new FormControl(''),
+      jobRole2: new FormControl(''),
+      // job_tags: new FormControl(''),
+      jobDescription2: new FormControl(''),
+
+      companyName3: new FormControl(''),
+      jobRole3: new FormControl(''),
+      // job_tags: new FormControl(''),
+      jobDescription3: new FormControl('')
     }),
 
     projects: new FormGroup({
-      projectTitle: new FormControl(''),
-      imggallery: new FormControl(''),
-      project_tags: new FormControl(''),
-      projectDescription: new FormControl('')
+      projectTitle1: new FormControl(''),
+      demovideo1: new FormControl(''),
+      // project_tags: new FormControl(''),
+      projectDescription1: new FormControl(''),
+
+      projectTitle2: new FormControl(''),
+      demovideo2: new FormControl(''),
+      // project_tags: new FormControl(''),
+      projectDescription2: new FormControl(''),
+
+      projectTitle3: new FormControl(''),
+      demovideo3: new FormControl(''),
+      // project_tags: new FormControl(''),
+      projectDescription3: new FormControl('')
     }),
 
   })
 
+  data: any
+
+  constructor(private formBuilder:FormBuilder, private profileData:ServiceService, private router:ActivatedRoute ){
+    this.data = this.profileForm
+    profileData.getProfileData()
+    this.profileData.postProfileData(this.data)
+  }
+
   
 
-  constructor(private formBuilder:FormBuilder){}
+  //Uploading files at Project sections
+  files: File[] = [];
+
+    onSelect(event:any) {
+      console.log(event);
+      this.files.push(...event.addedFiles);
+    }
+  
+    onRemove(event:any) {
+      console.log(event);
+      this.files.splice(this.files.indexOf(event), 1);
+    }
+
   navElements = "basic-info"
   setNavElements(clickedItem:string){
     this.navElements = clickedItem
   }
+
+  // profileID:String = this.router.snapshot.params['id']
   
   ngOnInit():void{
+    // console.log(this.profileID)
+    // console.log(this.profileData.getProfileData())
     // console.log(this.profileForm)
     // this.profileForm.valueChanges.subscribe(form=>{
     //   console.log(form)
@@ -69,6 +116,7 @@ export class DashboardComponent {
   }
 
   handleSubmit(){
+    
       console.log(this.profileForm.value)
   }
 

@@ -189,22 +189,225 @@
                     <!-- <button class="mt-4 bg-transparent hover:bg-gray-200 text-gray-900 font-semibold py-2 px-4 w-6/12 border border-gray-900 rounded">
                         Add More Institutions
                     </button> -->
-                    
-                    
+                     
                 </div>
-                
             </div>
 
 
 
             <div *ngSwitchCase="'experiences'">
-                <app-experiences-dashboard formGroupName="experiences"></app-experiences-dashboard>
+                <!-- <app-experiences-dashboard formGroupName="experiences"></app-experiences-dashboard> -->
+                <div formGroupName="experiences" class="self-center pt-10 pl-12">
+                    <h2 class="underline">Job Experiences</h2>
+                
+                    <div>
+                        <div class="border-dashed border border-gray-700 w-6/12 py-2 mb-4">
+                        <div class="mx-3">
+                
+                            <div class="my-3">
+                                <input formControlName="companyName1" type="text" class="form-control block w-full px-3 py-1.5
+                                text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300
+                                rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                id="exampleText0" placeholder="Company Name" />
+                            </div>
+                            <div class="my-3">
+                                <input formControlName="jobRole1" type="text" class="form-control block w-full px-3 py-1.5
+                                text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300
+                                rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                id="exampleText0" placeholder="Job Role" />
+                            </div>    
+                
+                            <div class="my-3">
+                                <textarea formControlName="jobDescription1" type="text" class="form-control block w-full px-3 py-1.5
+                                text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300
+                                rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                id="exampleText0" placeholder="Job Description"></textarea>
+                            </div>
+                        </div>  
+                        </div>
+                    </div>
+                
+                    <div>
+                        <div class="border-dashed border border-gray-700 w-6/12 py-2 mb-4">
+                        <div class="mx-3">
+                
+                            <div class="my-3">
+                                <input formControlName="companyName2" type="text" class="form-control block w-full px-3 py-1.5
+                                text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300
+                                rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                id="exampleText0" placeholder="Company Name" />
+                            </div>
+                            <div class="my-3">
+                                <input formControlName="jobRole2" type="text" class="form-control block w-full px-3 py-1.5
+                                text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300
+                                rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                id="exampleText0" placeholder="Job Role" />
+                            </div>    
+                
+                            <div class="my-3">
+                                <textarea formControlName="jobDescription2" type="text" class="form-control block w-full px-3 py-1.5
+                                text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300
+                                rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                id="exampleText0" placeholder="Job Description"></textarea>
+                            </div>
+                        </div>  
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="border-dashed border border-gray-700 w-6/12 py-2 mb-4">
+                        <div class="mx-3">
+                
+                            <div class="my-3">
+                                <input formControlName="companyName3" type="text" class="form-control block w-full px-3 py-1.5
+                                text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300
+                                rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                id="exampleText0" placeholder="Company Name" />
+                            </div>
+                            <div class="my-3">
+                                <input formControlName="jobRole3" type="text" class="form-control block w-full px-3 py-1.5
+                                text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300
+                                rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                id="exampleText0" placeholder="Job Role" />
+                            </div>    
+                
+                            <div class="my-3">
+                                <textarea formControlName="jobDescription3" type="text" class="form-control block w-full px-3 py-1.5
+                                text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300
+                                rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                id="exampleText0" placeholder="Job Description"></textarea>
+                            </div>
+                        </div>  
+                        </div>
+                    </div>
+                    
+     
+                </div>
             </div>
 
 
 
             <div *ngSwitchCase="'projects'">
-                <app-projects-dashboard formGroupName="basicInfo"></app-projects-dashboard>
+                <!-- <app-projects-dashboard formGroupName="basicInfo"></app-projects-dashboard> -->
+
+                <div formGroupName="projects" class="self-center pt-10 pl-12 w-5/12">
+                    <h2 class="underline">Projects</h2>
+                    <div>
+                        <div class="mb-3">
+                            <input formControlName="projectTitle1" type="text" class="form-control block w-full px-3 py-1.5
+                            text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300
+                            rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                            id="exampleText0" placeholder="Project Title" />
+                        </div>
+                        <div class="mb-3">
+                            <input formControlName="demovideo1" type="text" class="form-control block w-full px-3 py-1.5
+                            text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300
+                            rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                            id="exampleText0" placeholder="Demo video URL" />
+                        </div>
+                    
+                        <!-- <ngx-dropzone (change)="onSelect($event)">
+                            <div>
+                                <ngx-dropzone-label>Drop it, here!</ngx-dropzone-label>
+                                <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+                                <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                            </ngx-dropzone-preview>
+                            </div>
+                            
+                        </ngx-dropzone> -->
+                    
+                        <div class="my-3">
+                            <textarea formControlName="projectDescription1" type="text" class="form-control block w-full px-3 py-1.5
+                            text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300
+                            rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                            id="exampleText0" placeholder="Project Description"></textarea>
+                        </div>
+                                
+                    </div>
+                
+                    <hr class="w-full h-1 mx-auto my-4 bg-gray-200 border-0 rounded md:my-10 dark:bg-gray-700">
+
+
+                    <div>
+                        <div class="mb-3">
+                            <input formControlName="projectTitle1" type="text" class="form-control block w-full px-3 py-1.5
+                            text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300
+                            rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                            id="exampleText0" placeholder="Project Title" />
+                        </div>
+                        <div class="mb-3">
+                            <input formControlName="demovideo1" type="text" class="form-control block w-full px-3 py-1.5
+                            text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300
+                            rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                            id="exampleText0" placeholder="Demo video URL" />
+                        </div>
+                    
+                        <!-- <ngx-dropzone (change)="onSelect($event)">
+                            <div>
+                                <ngx-dropzone-label>Drop it, here!</ngx-dropzone-label>
+                                <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+                                <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                            </ngx-dropzone-preview>
+                            </div>
+                            
+                        </ngx-dropzone> -->
+                    
+                        <div class="my-3">
+                            <textarea formControlName="projectDescription1" type="text" class="form-control block w-full px-3 py-1.5
+                            text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300
+                            rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                            id="exampleText0" placeholder="Project Description"></textarea>
+                        </div>
+                        
+                    
+                    </div>
+                
+                    <hr class="w-full h-1 mx-auto my-4 bg-gray-200 border-0 rounded md:my-10 dark:bg-gray-700">
+
+
+                    <div>
+                        <div class="mb-3">
+                            <input formControlName="projectTitle1" type="text" class="form-control block w-full px-3 py-1.5
+                            text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300
+                            rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                            id="exampleText0" placeholder="Project Title" />
+                        </div>
+                        <div class="mb-3">
+                            <input formControlName="demovideo1" type="text" class="form-control block w-full px-3 py-1.5
+                            text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300
+                            rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                            id="exampleText0" placeholder="Demo video URL" />
+                        </div>
+                    
+                        <!-- <ngx-dropzone (change)="onSelect($event)">
+                            <div>
+                                <ngx-dropzone-label>Drop it, here!</ngx-dropzone-label>
+                                <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+                                <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                            </ngx-dropzone-preview>
+                            </div>
+                            
+                        </ngx-dropzone> -->
+                    
+                        <div class="my-3">
+                            <textarea formControlName="projectDescription1" type="text" class="form-control block w-full px-3 py-1.5
+                            text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300
+                            rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                            id="exampleText0" placeholder="Project Description"></textarea>
+                        </div>
+                        
+                    
+                    </div>
+                
+                    <hr class="w-full h-1 mx-auto my-4 bg-gray-200 border-0 rounded md:my-10 dark:bg-gray-700">
+
+                </div>      
+
+
+
+
+                
+                         
             </div>
 
             <button type="submit" [disabled]="!profileForm.valid" class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-6 border border-gray-400 rounded shadow sticky float-right mt-10 mr-24">Submit</button>

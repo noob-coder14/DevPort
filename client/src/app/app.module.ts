@@ -24,6 +24,7 @@ import { UserAccountsWebComponent } from './components/web-view-components/user-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgxDropzoneModule } from 'ngx-dropzone';
+import {HttpClientModule} from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -49,10 +50,12 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    NgxDropzoneModule
+    NgxDropzoneModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
