@@ -11,6 +11,10 @@ import { profile } from './dashboard';
 })
 export class DashboardComponent {
 
+  profileInfo! : any;
+
+  defaultEmail = '';
+
   profileForm = new FormGroup({
 
     basicInfo: new FormGroup({
@@ -77,36 +81,33 @@ export class DashboardComponent {
   })
 
   data: any
-
+  value: any
+  
   constructor(private formBuilder:FormBuilder, private profileData:ServiceService, private router:ActivatedRoute ){
-    this.data = this.profileForm
-    profileData.getProfileData()
-    this.profileData.postProfileData(this.data)
+    // this.data = this.profileForm
+    
   }
 
   
-
-  //Uploading files at Project sections
-  files: File[] = [];
-
-    onSelect(event:any) {
-      console.log(event);
-      this.files.push(...event.addedFiles);
-    }
   
-    onRemove(event:any) {
-      console.log(event);
-      this.files.splice(this.files.indexOf(event), 1);
-    }
-
+  
   navElements = "basic-info"
   setNavElements(clickedItem:string){
     this.navElements = clickedItem
   }
 
-  // profileID:String = this.router.snapshot.params['id']
+  profileID:String = this.router.snapshot.params['id']
+
+  getProfile():void{
+    this.profileData.getProfileData(this.profileID).subscribe(res=> {
+      this.profileInfo = res;
+      console.log(res)
+      // this.profileForm.get('basicInfo.email')?.setValue(res.email);
+    })
+  }
   
   ngOnInit():void{
+    // this.getProfile()
     // console.log(this.profileID)
     // console.log(this.profileData.getProfileData())
     // console.log(this.profileForm)
@@ -115,9 +116,11 @@ export class DashboardComponent {
     // })
   }
 
+  
+
   handleSubmit(){
     
-      console.log(this.profileForm.value)
+      // console.log(this.profileForm.value)
   }
 
 }

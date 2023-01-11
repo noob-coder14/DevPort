@@ -1,6 +1,6 @@
 export interface profile {
     "fullname": String,
-    "email": String,
+    "email": string,
     "careerObj": String,
     "pphoto": String,
 
