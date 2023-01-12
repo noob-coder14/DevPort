@@ -14,6 +14,11 @@ import { ServiceService } from 'src/app/services/service.service';
 export class WebViewComponent {
 
   profileInfo!: any;
+  imgSrc: any;
+  leetCode: string | undefined;
+  leetcodeData: any;
+  leetcodeInfo: any;
+  
   // profileID: String="";
   // @Output() 
   // navClicked = new EventEmitter();
@@ -33,14 +38,42 @@ export class WebViewComponent {
   getProfile(): void {
     this.profileData.getProfileData(this.profileID).subscribe(res=> {
       this.profileInfo = res;
-      console.log(this.profileInfo)
+      this.imgSrc = "https://ghchart.rshah.org/"+this.profileInfo.userAccInfo.githubLink
+      // this.leetCode = "https://leetcode-stats-api.herokuapp.com/"+this.profileInfo.leetcodeLink
+      // console.log(this.profileInfo)
+      // console.log(this.imgSrc);
+
+      // this.profileData.getLeetCodeData(this.profileInfo.leetcodeLink)
+      
+      
         // this.profileForm.patchValue(res);
         // this.profileForm.get('basicInfo.email')?.setValue(res.email);
       });
   }
 
+  getLeetData():void{
+    
+    this.profileData.getLeetCodeData(this.profileInfo.userAccInfo.leetcodeLink).subscribe((res: any)=> {
+      this.leetcodeInfo = res;
+      console.log("Hello")
+      
+      // console.log(this.imgSrc);
+
+      // this.profileData.getLeetCodeData(this.profileInfo.leetcodeLink)
+      
+      
+        // this.profileForm.patchValue(res);
+        // this.profileForm.get('basicInfo.email')?.setValue(res.email);
+      });
+  }
+
+  
+  
+
   ngOnInit():void{
+    // console.log(this.imgSrc)
     this.getProfile()
+    this.getLeetData()
     // console.log(this.profileID)
     // this.getProfile();
   }

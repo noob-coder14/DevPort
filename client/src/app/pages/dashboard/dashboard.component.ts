@@ -8,7 +8,7 @@ import {
 } from '@angular/forms';
 import { ServiceService } from 'src/app/services/service.service';
 import { ActivatedRoute } from '@angular/router';
-import { profile } from './dashboard';
+import { profile } from '../../interfaces/profile';
 
 @Component({
   selector: 'app-dashboard',

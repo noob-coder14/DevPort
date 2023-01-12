@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { profile } from '../pages/dashboard/dashboard';
+import { profile } from '../interfaces/profile';
+import { leetcode } from '../interfaces/leetcode';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 
@@ -10,6 +11,9 @@ import { Observable } from 'rxjs';
 export class ServiceService {
   Url = `http://localhost:3000/dashboard`;
   // UrlPortfolio = `http://localhost:3000/web-view`;
+  leetcodeURL = "https://leetcode-stats-api.herokuapp.com/"
+
+
   constructor(private http: HttpClient, private router: ActivatedRoute) {}
 
   // profileID:String = this.router.snapshot.params['id']
@@ -20,14 +24,16 @@ export class ServiceService {
   }
 
   // getProfileDataPortfolio(id: any): Observable<profile> {
-  //   console.log('Id : ', id);
-  //   return this.http.get<profile>(`${this.Url}/${id}`);
-  // }
+  
 
   postProfileData(data: profile) {
     this.http.post(this.Url, data);
   }
   updateProfileInformation(id: String, obj: profile) {
     return this.http.put(`${this.Url}/${id}`, obj);
+  }
+
+  getLeetCodeData(username: string):Observable<leetcode> {
+    return this.http.get<leetcode>(`${this.leetcodeURL}/${username}`,)
   }
 }
