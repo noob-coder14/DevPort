@@ -7,7 +7,8 @@ import { WebViewComponent } from './pages/web-view/web-view.component';
 const routes: Routes = [
   {path: 'dashboard/:id', component: DashboardComponent},
   {path: 'hr', component: HrClientComponent},
-  {path: 'web-view', component: WebViewComponent}
+  // {path: 'web-view', component: WebViewComponent},
+  {path: 'web-view/:id', component: WebViewComponent}
 ];
 
 @NgModule({

@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class ServiceService {
   Url = `http://localhost:3000/dashboard`;
+  // UrlPortfolio = `http://localhost:3000/web-view`;
   constructor(private http: HttpClient, private router: ActivatedRoute) {}
 
   // profileID:String = this.router.snapshot.params['id']
@@ -17,6 +18,12 @@ export class ServiceService {
     console.log('Id : ', id);
     return this.http.get<profile>(`${this.Url}/${id}`);
   }
+
+  // getProfileDataPortfolio(id: any): Observable<profile> {
+  //   console.log('Id : ', id);
+  //   return this.http.get<profile>(`${this.Url}/${id}`);
+  // }
+
   postProfileData(data: profile) {
     this.http.post(this.Url, data);
   }
