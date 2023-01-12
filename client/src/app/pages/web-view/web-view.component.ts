@@ -40,12 +40,12 @@ export class WebViewComponent {
       this.profileInfo = res;
       this.imgSrc = "https://ghchart.rshah.org/"+this.profileInfo.userAccInfo.githubLink
       // this.leetCode = "https://leetcode-stats-api.herokuapp.com/"+this.profileInfo.leetcodeLink
-      // console.log(this.profileInfo)
+      console.log(this.profileInfo)
       // console.log(this.imgSrc);
 
       // this.profileData.getLeetCodeData(this.profileInfo.leetcodeLink)
       
-      
+      this.getLeetData()
         // this.profileForm.patchValue(res);
         // this.profileForm.get('basicInfo.email')?.setValue(res.email);
       });
@@ -55,7 +55,7 @@ export class WebViewComponent {
     
     this.profileData.getLeetCodeData(this.profileInfo.userAccInfo.leetcodeLink).subscribe((res: any)=> {
       this.leetcodeInfo = res;
-      console.log("Hello")
+      // console.log(this.leetcodeInfo)
       
       // console.log(this.imgSrc);
 
@@ -73,7 +73,7 @@ export class WebViewComponent {
   ngOnInit():void{
     // console.log(this.imgSrc)
     this.getProfile()
-    this.getLeetData()
+    
     // console.log(this.profileID)
     // this.getProfile();
   }

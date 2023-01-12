@@ -383,7 +383,7 @@ main .profile{
     text-align: left;
     padding: 20px 18px;
     font-size: 13px;
-    line-height: 13px;
+    line-height: 7px;
     color: #171717;
     font-weight: 500;
     text-transform: uppercase;
@@ -394,10 +394,12 @@ main .profile{
     float: left;
     top:-7px;
     width: 40px;
-    height: 40px;
+    height: 30px;
     font-size: 26px;
     color: #f1f5f9;
 }
+
+
 
 .resume-line{
     flex: 1;
