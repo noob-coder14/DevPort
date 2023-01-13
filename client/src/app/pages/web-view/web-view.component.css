@@ -167,7 +167,7 @@ header nav a:hover {
 }
 
 main{
-    margin-top: 88px;
+    margin-top: 25px;
 }
 
 main .profile, main .about, main .resume, main .works, main .blog, main .contact{
@@ -177,7 +177,7 @@ main .profile, main .about, main .resume, main .works, main .blog, main .contact
     text-align: center;
     z-index: 10;
     border-radius: 4px;
-    max-width: 540px;
+    width: 90%;
     margin: 0 auto;
 }
 
@@ -424,7 +424,7 @@ main .profile{
 }
 
 
-.resume-line .date::before{    
+.resume-line .date::before{
     content: '';
     position: absolute;
     left: -19px;
@@ -558,6 +558,7 @@ main .contact{
         display: flex;
         justify-content: center;
         align-items: center;
+
     }
     header{
         max-width: 80px;
@@ -582,7 +583,7 @@ main .contact{
     main{
         display: flex;
         margin: 0;
-        width: 1020px;
+        width: 1120px;
     }
 
     main .about, main .resume, main .contact {
@@ -605,7 +606,7 @@ main .contact{
         box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.05);
         margin: 0;
     }
-  
+
     main .view{
         height: 574px;
         width: 540px;
@@ -618,13 +619,13 @@ main .contact{
     main .view::-webkit-scrollbar {
         width: 5px;
     }
-       
+
     main .view::-webkit-scrollbar-track {
         background: #ddd;
     }
-       
+
     main .view::-webkit-scrollbar-thumb {
-        background: #f1f5f9; 
+        background: #f1f5f9;
     }
 
     main .contact {

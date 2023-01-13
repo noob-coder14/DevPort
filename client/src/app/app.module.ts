@@ -22,7 +22,7 @@ import { ExperiencesWebComponent } from './components/web-view-components/experi
 import { ProjectsWebComponent } from './components/web-view-components/projects-web/projects-web.component';
 import { UserAccountsWebComponent } from './components/web-view-components/user-accounts-web/user-accounts-web.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import {HttpClientModule} from '@angular/common/http'
 
@@ -55,7 +55,7 @@ import {HttpClientModule} from '@angular/common/http'
     BrowserAnimationsModule,
     ReactiveFormsModule,
     NgxDropzoneModule,
-    
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

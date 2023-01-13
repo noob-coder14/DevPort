@@ -5,7 +5,12 @@ const basicInfoSchema = mongoose.Schema({
   fullname: String,
   email: String,
   careerObj: String,
-  pphoto: String,
+  // skillsData: [
+  //   {
+  //     name:String
+  //   }
+  // ]
+  skillsData: [String]
 })
 
 const userAccInfoSchema = mongoose.Schema({

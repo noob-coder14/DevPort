@@ -28,9 +28,9 @@ async function getsingleProfile(req, res) {
 
 async function postProfile(req, res) {
   try {
-    // const { fullname,email,careerObj } = req.body;
-    console.log("Request Body : ",req.body)
+    console.log("Request Body : ",req.body.basicInfo.skillsData)
     const result = await Profile.create(req.body);
+    console.log("Response Body : ",result.basicInfo)
     res.status(201);
     res.send(result);
   } catch (error) {

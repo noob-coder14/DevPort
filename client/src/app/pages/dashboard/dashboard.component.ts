@@ -19,7 +19,9 @@ export class DashboardComponent {
   profileInfo!: any;
   navElements = 'basic-info';
   defaultEmail = '';
-  profileID: String="";
+  profileID: String = '';
+  skillsData = ['Angular', 'React'];
+  skillsInput: string = '';
 
   profileForm = new FormGroup({
     basicInfo: new FormGroup({
@@ -27,7 +29,7 @@ export class DashboardComponent {
         Validators.required,
         Validators.minLength(4),
       ]),
-      email: new FormControl(''),
+      email: new FormControl('adasd'),
       careerObj: new FormControl(''),
       // pphoto: new FormControl(''),
     }),
@@ -96,7 +98,7 @@ export class DashboardComponent {
 
   ngOnInit(): void {
     this.profileID = this.router.snapshot.params['id'];
-    console.log("Profile ID : ",this.profileID)
+    console.log('Profile ID : ', this.profileID);
     this.getProfile();
   }
 
@@ -105,24 +107,27 @@ export class DashboardComponent {
   }
 
   getProfile(): void {
-    this.profileData
-      .getProfileData(this.profileID)
-      .subscribe((res: any) => {
-        this.profileInfo = res;
-        console.log('User Profile Data : ', res);
-        this.profileForm.patchValue(res);
-        // this.profileForm.get('basicInfo.email')?.setValue(res.email);
-      });
+    this.profileData.getProfileData(this.profileID).subscribe((res: any) => {
+      this.profileInfo = res;
+      console.log('User Profile Data : ', res);
+      this.profileForm.patchValue(res);
+      this.skillsData = res.basicInfo.skillsData ? res.basicInfo.skillsData : [] ;
+      // this.profileForm.get('basicInfo.email')?.setValue(res.email);
+    });
   }
 
   handleSubmit() {
     // console.log(this.profileForm.value)
     let finalFormValue: any = this.profileForm.value;
+    finalFormValue.basicInfo.skillsData = this.skillsData;
     // console.log(JSON.stringify(finalFormValue, undefined, 3));
     this.profileData
       .updateProfileInformation(this.profileID, finalFormValue)
       .subscribe((res) => {
         alert('Profile Information Successfully Updated');
       });
+  }
+  onAddSkills() {
+    this.skillsData.push(this.skillsInput);
   }
 }

@@ -10,6 +10,7 @@ interface basicInfo {
   fullname: string;
   email: string;
   careerObj: string;
+  skills: [string];
   pphoto: string;
 }
 

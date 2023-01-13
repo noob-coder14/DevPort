@@ -18,13 +18,17 @@ export class ServiceService {
 
   // profileID:String = this.router.snapshot.params['id']
 
+  getAllProfileData(): Observable<profile[]> {
+    return this.http.get<profile[]>(`${this.Url}/`);
+  }
+
   getProfileData(id: any): Observable<profile> {
     console.log('Id : ', id);
     return this.http.get<profile>(`${this.Url}/${id}`);
   }
 
   // getProfileDataPortfolio(id: any): Observable<profile> {
-  
+
 
   postProfileData(data: profile) {
     this.http.post(this.Url, data);
