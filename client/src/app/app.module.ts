@@ -24,7 +24,9 @@ import { UserAccountsWebComponent } from './components/web-view-components/user-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxDropzoneModule } from 'ngx-dropzone';
-import {HttpClientModule} from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './pages/signin/login/login.component';
+import { SignupComponent } from './pages/signin/signup/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,8 @@ import {HttpClientModule} from '@angular/common/http'
     ExperiencesWebComponent,
     ProjectsWebComponent,
     UserAccountsWebComponent,
+    LoginComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,9 +59,9 @@ import {HttpClientModule} from '@angular/common/http'
     BrowserAnimationsModule,
     ReactiveFormsModule,
     NgxDropzoneModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
