@@ -18,15 +18,13 @@ import { profile } from '../../interfaces/profile';
 export class DashboardComponent {
   profileInfo!: any;
   navElements = 'basic-info';
-  defaultEmail = '';
   profileID: String = '';
-  skillsData = [''];
+  // skillsData = [''];
   skillsInput: string = '';
-
+  skillExists: string = '';
   profileForm = new FormGroup({
-    
     basicInfo: new FormGroup({
-      // fullname: new FormControl('', 
+      // fullname: new FormControl('',
       // [
       //   Validators.required,
       //   Validators.minLength(4),
@@ -34,7 +32,7 @@ export class DashboardComponent {
       fullname: new FormControl(''),
       email: new FormControl(''),
       careerObj: new FormControl(''),
-      // pphoto: new FormControl(''),
+      pphoto: new FormControl(''),
     }),
 
     userAccInfo: new FormGroup({
@@ -92,6 +90,7 @@ export class DashboardComponent {
 
   data: any;
   value: any;
+  skillsData: any;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -114,7 +113,9 @@ export class DashboardComponent {
       this.profileInfo = res;
       console.log('User Profile Data : ', res);
       this.profileForm.patchValue(res);
-      this.skillsData = res.basicInfo.skillsData ? res.basicInfo.skillsData : [] ;
+      this.skillsData = res.basicInfo.skillsData
+        ? res.basicInfo.skillsData
+        : [];
       // this.profileForm.get('basicInfo.email')?.setValue(res.email);
     });
   }
@@ -131,7 +132,14 @@ export class DashboardComponent {
       });
   }
   onAddSkills() {
-    this.skillsData.push(this.skillsInput);
+    if (!this.skillsData.includes(this.skillsInput) && this.skillsInput !== '')
+      {this.skillsData.push(this.skillsInput);}
+    this.skillsInput = '';
+  }
+  onRemoveSkill(skill: any) {
+    console.log('remove ', skill);
+    const index = this.skillsData.indexOf(skill);
+    this.skillsData.splice(index, 1);
   }
   // postRegData(){
   //   this.
