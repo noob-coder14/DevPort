@@ -1,76 +1,72 @@
 <div class="min-h-screen h-full w-full bg-gray-100">
   <div class="container mx-auto px-12 pt-24">
     <h2 class="mb-10">Select the skills you are looking for:</h2>
-    <div class="flex gap-4 mb-24">
+    <div class="flex gap-4 mb-24 flex-wrap">
       <button
       type="button"
-      class="inline-block px-6 py-2 border-2 border-gray-800 text-gray-800 font-medium text-xs leading-tight rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
-      (click)="selectFilter('All')"
+      *ngFor="let skill of skills"
+      (click)="skillClickEvent(skill.name)"
+        [ngClass]="this.skill.status? 
+        'inline-block px-6 py-2.5 bg-gray-800 text-white font-medium text-xs leading-tight rounded-full shadow-md hover:bg-gray-900 hover:shadow-lg focus:bg-gray-900 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-900 active:shadow-lg transition duration-150 ease-in-out':
+        'inline-block px-6 py-2 border-2 border-gray-800 text-gray-800 font-medium text-xs leading-tight rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out'"
+      (click)="selectFilter(skill.name)"
     >
-      All
+      {{skill.name}}
     </button>
-      <button
+      <!-- <button
         type="button"
-        class="inline-block px-6 py-2 border-2 border-gray-800 text-gray-800 font-medium text-xs leading-tight rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+        (click)="skillClickEvent()"
+        [ngClass]="status? 
+        'inline-block px-6 py-2.5 bg-gray-800 text-white font-medium text-xs leading-tight rounded-full shadow-md hover:bg-gray-900 hover:shadow-lg focus:bg-gray-900 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-900 active:shadow-lg transition duration-150 ease-in-out':
+        'inline-block px-6 py-2 border-2 border-gray-800 text-gray-800 font-medium text-xs leading-tight rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out'"
         (click)="selectFilter('React')"
       >
         React
       </button>
       <button
         type="button"
-        class="inline-block px-6 py-2.5 bg-gray-800 text-white font-medium text-xs leading-tight rounded-full shadow-md hover:bg-gray-900 hover:shadow-lg focus:bg-gray-900 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-900 active:shadow-lg transition duration-150 ease-in-out"
+        (click)="skillClickEvent()"
+        [ngClass]="status? 
+        'inline-block px-6 py-2.5 bg-gray-800 text-white font-medium text-xs leading-tight rounded-full shadow-md hover:bg-gray-900 hover:shadow-lg focus:bg-gray-900 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-900 active:shadow-lg transition duration-150 ease-in-out':
+        'inline-block px-6 py-2 border-2 border-gray-800 text-gray-800 font-medium text-xs leading-tight rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out'"
         (click)="selectFilter('Angular')"
       >
         Angular
       </button>
       <button
         type="button"
-        class="inline-block px-6 py-2 border-2 border-gray-800 text-gray-800 font-medium text-xs leading-tight rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+        (click)="skillClickEvent()"
+        [ngClass]="status? 
+        'inline-block px-6 py-2.5 bg-gray-800 text-white font-medium text-xs leading-tight rounded-full shadow-md hover:bg-gray-900 hover:shadow-lg focus:bg-gray-900 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-900 active:shadow-lg transition duration-150 ease-in-out':
+        'inline-block px-6 py-2 border-2 border-gray-800 text-gray-800 font-medium text-xs leading-tight rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out'"
         (click)="selectFilter('NodeJS')"
       >
         NodeJS
       </button>
       <button
         type="button"
-        class="inline-block px-6 py-2 border-2 border-gray-800 text-gray-800 font-medium text-xs leading-tight rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+        (click)="skillClickEvent()"
+        [ngClass]="status? 
+        'inline-block px-6 py-2.5 bg-gray-800 text-white font-medium text-xs leading-tight rounded-full shadow-md hover:bg-gray-900 hover:shadow-lg focus:bg-gray-900 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-900 active:shadow-lg transition duration-150 ease-in-out':
+        'inline-block px-6 py-2 border-2 border-gray-800 text-gray-800 font-medium text-xs leading-tight rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out'"
         (click)="selectFilter('MongoDB')"
       >
         MongoDB
       </button>
+      
       <button
         type="button"
-        class="inline-block px-6 py-2 border-2 border-gray-800 text-gray-800 font-medium text-xs leading-tight rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
-        (click)="selectFilter('MySQL')"
-      >
-        MySQL
-      </button>
-      <button
-        type="button"
-        class="inline-block px-6 py-2 border-2 border-gray-800 text-gray-800 font-medium text-xs leading-tight rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
-      >
-        Docker
-      </button>
-      <button
-        type="button"
-        class="inline-block px-6 py-2 border-2 border-gray-800 text-gray-800 font-medium text-xs leading-tight rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
-      >
-        VueJS
-      </button>
-      <button
-        type="button"
-        class="inline-block px-6 py-2.5 bg-gray-800 text-white font-medium text-xs leading-tight rounded-full shadow-md hover:bg-gray-900 hover:shadow-lg focus:bg-gray-900 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-900 active:shadow-lg transition duration-150 ease-in-out"
+        (click)="skillClickEvent()"
+        [ngClass]="status? 
+        'inline-block px-6 py-2.5 bg-gray-800 text-white font-medium text-xs leading-tight rounded-full shadow-md hover:bg-gray-900 hover:shadow-lg focus:bg-gray-900 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-900 active:shadow-lg transition duration-150 ease-in-out':
+        'inline-block px-6 py-2 border-2 border-gray-800 text-gray-800 font-medium text-xs leading-tight rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out'"
       >
         .NET
-      </button>
-      <button
-        type="button"
-        class="inline-block px-6 py-2 border-2 border-gray-800 text-gray-800 font-medium text-xs leading-tight rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
-      >
-        Devops
-      </button>
+      </button> -->
+      
     </div>
 
-    <div class="flex">
+    <div class="flex flex-wrap gap-x-1 gap-y-2">
       <div
         class="w-5/6 max-w-sm bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700 pt-4"
         *ngFor="let profile of this.getFilteredData()"
@@ -87,13 +83,14 @@
           <span class="text-sm text-gray-500 dark:text-gray-400"
             >{{profile.experiences.jobRole1}}</span
           >
-          <div class="flex mt-2 space-x-3 md:mt-4">
+          <button (click)="individualProfileClick(profile.basicInfo._id)" class="flex mt-2 space-x-3 md:mt-4">
             <a
-              href="#"
+            [routerLink]="['../web-view',profile.basicInfo._id]"
+            
               class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               >See Full Profile</a
             >
-          </div>
+          </button>
         </div>
       </div>
     </div>

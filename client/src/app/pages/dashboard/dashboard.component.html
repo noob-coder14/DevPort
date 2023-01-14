@@ -54,13 +54,16 @@
             [(ngModel)]="skillsInput"
             [ngModelOptions]="{standalone: true}"
           />
-          <button class="btn btn-danger" (click)="onAddSkills()"
+          <button class="btn bg-blue-200 p-2 mt-4 mb-4 rounded-sm" (click)="onAddSkills()"
           >Add Skill</button>
           </span>
-          <div
+          <div class="flex gap-2">
+            <div
             class="mb-3 xl:w-5/12"
             *ngFor="let skill of skillsData; let perSkill = index"
           >{{skill}}</div>
+          </div>
+          
         </div>
 
         <div class="flex items-center justify-center xl:w-5/12">
