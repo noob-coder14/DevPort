@@ -4,6 +4,7 @@ import { profile } from '../interfaces/profile';
 import { leetcode } from '../interfaces/leetcode';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
+import { signin } from '../interfaces/signin';
 
 @Injectable({
   providedIn: 'root',
@@ -12,6 +13,8 @@ export class ServiceService {
   Url = `http://localhost:3000/dashboard`;
   // UrlPortfolio = `http://localhost:3000/web-view`;
   leetcodeURL = "https://leetcode-stats-api.herokuapp.com/"
+  registerURL = "http://localhost:3000/register"
+  loginURL = "http://localhost:3000/login"
 
 
   constructor(private http: HttpClient, private router: ActivatedRoute) {}
@@ -38,6 +41,12 @@ export class ServiceService {
   }
 
   getLeetCodeData(username: string):Observable<leetcode> {
-    return this.http.get<leetcode>(`${this.leetcodeURL}/${username}`,)
+    return this.http.get<leetcode>(`${this.leetcodeURL}/${username}`)
+  }
+  postRegData(data:signin){
+    return this.http.post<signin>(`${this.registerURL}`,data)
+  }
+  postLoginData(data:signin){
+    return this.http.post<signin>(`${this.loginURL}`,data)
   }
 }

@@ -1,5 +1,4 @@
 const Profile = require("../models/profile");
-
 async function getAllProfiles(req, res) {
   try {
     const profiles = await Profile.find();

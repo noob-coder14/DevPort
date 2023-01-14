@@ -27,6 +27,7 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './pages/signin/login/login.component';
 import { SignupComponent } from './pages/signin/signup/signup/signup.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { SignupComponent } from './pages/signin/signup/signup/signup.component';
     UserAccountsWebComponent,
     LoginComponent,
     SignupComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,

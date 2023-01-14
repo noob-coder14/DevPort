@@ -20,16 +20,19 @@ export class DashboardComponent {
   navElements = 'basic-info';
   defaultEmail = '';
   profileID: String = '';
-  skillsData = ['Angular', 'React'];
+  skillsData = [''];
   skillsInput: string = '';
 
   profileForm = new FormGroup({
+    
     basicInfo: new FormGroup({
-      fullname: new FormControl('', [
-        Validators.required,
-        Validators.minLength(4),
-      ]),
-      email: new FormControl('adasd'),
+      // fullname: new FormControl('', 
+      // [
+      //   Validators.required,
+      //   Validators.minLength(4),
+      // ]),
+      fullname: new FormControl(''),
+      email: new FormControl(''),
       careerObj: new FormControl(''),
       // pphoto: new FormControl(''),
     }),
@@ -130,4 +133,7 @@ export class DashboardComponent {
   onAddSkills() {
     this.skillsData.push(this.skillsInput);
   }
+  // postRegData(){
+  //   this.
+  // }
 }

@@ -20,7 +20,7 @@ a {
 
 .background.gradient {
     background: #94a3b8;
-    background: linear-gradient(to bottom right, #94a3b8 0%, #f1f5f9 100%);
+    background: linear-gradient(to bottom right, #334155 0%, #f1f5f9 100%);
     position: fixed;
     overflow: hidden;
     top: 0;
@@ -583,7 +583,7 @@ main .contact{
     main{
         display: flex;
         margin: 0;
-        width: 1120px;
+        width: 100%;
     }
 
     main .about, main .resume, main .contact {
@@ -601,15 +601,15 @@ main .contact{
     }
 
     main .profile{
-        width: 480px;
-        height: 600px;
+        width: 50%;
+        height: 100vh;
         box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.05);
         margin: 0;
     }
 
     main .view{
-        height: 574px;
-        width: 540px;
+        height: 100vh;
+        width:100%;
         padding: 30px 20px 30px 20px;
         overflow: auto;
         opacity: 1;
