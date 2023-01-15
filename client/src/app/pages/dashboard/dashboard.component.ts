@@ -7,7 +7,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { ServiceService } from 'src/app/services/service.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Route } from '@angular/router';
 import { profile } from '../../interfaces/profile';
 
 @Component({
@@ -91,17 +91,28 @@ export class DashboardComponent {
   data: any;
   value: any;
   skillsData: any;
+  routerJump: any;
 
   constructor(
     private formBuilder: FormBuilder,
     private profileData: ServiceService,
-    private router: ActivatedRoute
-  ) {}
+    private router: ActivatedRoute  ) {}
 
   ngOnInit(): void {
     this.profileID = this.router.snapshot.params['id'];
     console.log('Profile ID : ', this.profileID);
     this.getProfile();
+    // const userStr = localStorage.getItem('user');
+    // if(userStr){
+    //   const user = JSON.parse(userStr);
+    //   this.routerJump.navigate([`'dashboard/'+${this.profileID}`])
+    //   // if(user.usertype === 'admin'){
+    //   //   this.routerJump.navigate([])
+    //   // }
+    // }
+    // else{
+    //   this.routerJump.navigate([`login`])
+    // }
   }
 
   setNavElements(clickedItem: string) {

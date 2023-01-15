@@ -11,7 +11,7 @@ interface basicInfo {
   email: string;
   careerObj: string;
   skills: [string];
-  pphoto: string;
+  // pphoto: string;
 }
 
 interface userAccInfo {

@@ -5,6 +5,7 @@ import { leetcode } from '../interfaces/leetcode';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { signin } from '../interfaces/signin';
+import { githubdata } from '../interfaces/githubdata';
 
 @Injectable({
   providedIn: 'root',
@@ -13,6 +14,7 @@ export class ServiceService {
   Url = `http://localhost:3000/dashboard`;
   // UrlPortfolio = `http://localhost:3000/web-view`;
   leetcodeURL = "https://leetcode-stats-api.herokuapp.com/"
+  githubURL = "https://api.github.com/users/"
   registerURL = "http://localhost:3000/register"
   loginURL = "http://localhost:3000/login"
 
@@ -46,7 +48,15 @@ export class ServiceService {
   postRegData(data:signin){
     return this.http.post<signin>(`${this.registerURL}`,data)
   }
-  postLoginData(data:signin){
-    return this.http.post<signin>(`${this.loginURL}`,data)
+  postLoginData(data:any){
+    return this.http.post<signin>(`${this.loginURL}`,data, {observe: 'response'})
+  }
+  getImage(username:string){
+    console.log(`${this.githubURL}${username}`)
+    return this.http.get<githubdata>(`${this.githubURL}${username}`)
+  }
+  get isLoggedIn(): boolean {
+    let authToken = localStorage.getItem('accessToken');
+    return authToken !== null ? true : false;
   }
 }

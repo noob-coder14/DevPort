@@ -10,11 +10,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@angular/fire": "^7.5.0",
     "bcryptjs": "^2.4.3",
     "cloudinary": "^1.33.0",
+    "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "express-fileupload": "^1.4.0",
+    "firebase": "^9.15.0",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.8.1"
   }

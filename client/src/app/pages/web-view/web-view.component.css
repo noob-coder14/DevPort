@@ -191,23 +191,24 @@ main .profile{
     overflow: hidden;
 }
 
-.profile-background{
+/* .profile-background{
     height: 300px;
-}
+} */
 
-.profile-image{
+/* .profile-image{
     position: relative;
     height: 84px;
-}
-.profile-image img{
+} */
+/* .profile-image img{
     position: relative;
     top: -82px;
+    height: 180px;
     border-radius: 50%;
     border: 3px solid white;
-    width: 134px;
-}
+    width: 180px;
+} */
 
-.profile-image::before{
+/* .profile-image::before{
     content: '';
     position: absolute;
     top: -69px;
@@ -216,7 +217,7 @@ main .profile{
     height: 134px;
     background: linear-gradient(135deg, #94a3b8 0%, rgba(46, 202, 127, 0.01) 100%);
     border-radius: 100%;
-}
+} */
 
 .profile-name{
     font-size: 32px;
@@ -294,10 +295,14 @@ main .profile{
     font-size: 15px;
 }
 
+.about-aboutMe{
+    margin-top: 48px;
+}
+
 .about-aboutMe > div{
     padding: 5px 17px;
     position: relative;
-
+    
 }
 
 .about-aboutMe > div > div{
@@ -550,7 +555,7 @@ main .contact{
         color: #f1f5f9;
     }
     .page{
-        position: absolute;
+        position: relative;
         top:0;
         bottom: 0;
         left: 0;

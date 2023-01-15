@@ -95,6 +95,9 @@ export class HrClientComponent implements OnInit {
     const profileLink = `http://localhost:4200/web-view/${id}`
     console.log(profileLink)
   }
+  getImage(x:string){
+    this.profileData.getImage(x)
+  }
 }
 
 

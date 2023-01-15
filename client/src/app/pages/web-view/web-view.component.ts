@@ -18,6 +18,8 @@ export class WebViewComponent {
   leetCode: string | undefined;
   leetcodeData: any;
   leetcodeInfo: any;
+  // gitInfo: any;
+  gitImg: any;
   
   // profileID: String="";
   // @Output() 
@@ -48,6 +50,9 @@ export class WebViewComponent {
       this.getLeetData()
         // this.profileForm.patchValue(res);
         // this.profileForm.get('basicInfo.email')?.setValue(res.email);
+      // console.log('GitHub img link :',this.getGithubInfo())
+      // console.log("git Img URL :", gitImgURL)
+      this.getGithubInfo()
       });
   }
 
@@ -67,7 +72,13 @@ export class WebViewComponent {
       });
   }
 
-  
+  getGithubInfo():void{
+    this.profileData.getImage(this.profileInfo.userAccInfo.githubLink).subscribe((res:any)=>{
+      console.log("github link res :", res)
+      this.gitImg = res.avatar_url;
+      // return this.gitImg
+    })
+  }
   
 
   ngOnInit():void{

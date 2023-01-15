@@ -1,7 +1,7 @@
 
 
 
-    <div class="page">
+    <div class="page font-serif">
         <!-- <header>
             <nav>
                 <a (click)="navclick('getAbout')" class="selected">
@@ -20,20 +20,23 @@
         </header> -->
         <main>
             <section id="presentation" class="profile">
-                <div class="profile-background"></div>
-                <div>
-                    <!-- <div class="profile-image">
-                        <img src="https://i.ibb.co/JHjYgmv/profile.png" alt="Ryan Adlard">
-                    </div> -->
-                    <h1 class="profile-name" id="nombre">{{profileInfo.basicInfo.fullname}}</h1>
-                    <h2 class="profile-profession">Web Developer</h2>
-                    <div class="profile-social" id="profile-social">
-                        <a href="www.dribbble.com" class="fab fa-dribbble"></a>
+                <!-- <div class="profile-background"></div> -->
+                <div class="flex-col mt-12">
+                    <div class="self-center border-white relative flex justify-center">
+                        <img class="rounded-full h-80 w-80 " src={{gitImg}} alt="name">
+                    </div>
+                    <div class="mt-8">
+                        <h1 class="profile-name" id="nombre">{{profileInfo.basicInfo.fullname}}</h1>
+                        <h2 class="profile-profession">Web Developer</h2>
+                        <div class="profile-social" id="profile-social">
+                        <!-- <a href="www.dribbble.com" class="fab fa-dribbble"></a> -->
                         <a href="www.twitter.com" class="fab fa-twitter"></a>
                         <a href="www.github.com" class="fab fa-github"></a>
-                        <a href="www.spotify.com" class="fab fa-spotify"></a>
+                        <!-- <a href="www.spotify.com" class="fab fa-spotify"></a> -->
                         <a href="www.stackoverflow.com" class="fab fa-stack-overflow"></a>
                     </div>
+                    </div>
+                    
                 </div>
                 <!-- <div class="profile-buttons">
                     <a href="/myCV.txt" download>DOWNLOAD CV <i class="fas fa-download"></i></a>
@@ -50,7 +53,7 @@
                         <h3 class="title">About Me</h3>
                         <div class="line-left">
                             <p>{{profileInfo.basicInfo.careerObj}}</p>
-                            <div>
+                            <!-- <div>
                                 <div>
                                     <span>AGE . . . . </span>24
                                 </div>
@@ -63,7 +66,7 @@
                                 <div>
                                     <span>ADDRESS . . . . </span>California, USA
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                         <img src={{imgSrc}} alt="Name Your Github chart">
 
@@ -175,7 +178,7 @@
                     </div>
 
                 
-                        <h3 class="title">Get in Touch</h3>
+                        <!-- <h3 class="title">Get in Touch</h3>
                         <div class="contact-information line-left">
                           <div>
                             <span>ADDRESS . . . . </span> California, USA
@@ -189,7 +192,7 @@
                           <div>
                             <span>FREELANCE . . . . </span> Available
                           </div>
-                        </div>
+                        </div> -->
 
 
                 </section>

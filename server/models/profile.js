@@ -5,7 +5,7 @@ const basicInfoSchema = mongoose.Schema({
   fullname: String,
   email: String,
   careerObj: String,
-  pphoto: String,
+  // pphoto: String,
   // skillsData: [
   //   {
   //     name:String
