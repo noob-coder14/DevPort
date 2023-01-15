@@ -96,13 +96,14 @@ export class DashboardComponent {
   constructor(
     private formBuilder: FormBuilder,
     private profileData: ServiceService,
-    private router: ActivatedRoute  ) {}
+    private router: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
-    this.profileID = localStorage.getItem("userId");
+    this.profileID = localStorage.getItem('userId');
     console.log('Profile ID : ', this.profileID);
     this.getProfile();
-    
+
     // const userStr = localStorage.getItem('user');
     // if(userStr){
     //   const user = JSON.parse(userStr);
@@ -144,8 +145,12 @@ export class DashboardComponent {
       });
   }
   onAddSkills() {
-    if (!this.skillsData.includes(this.skillsInput) && this.skillsInput !== '')
-      {this.skillsData.push(this.skillsInput);}
+    if (
+      !this.skillsData.includes(this.skillsInput) &&
+      this.skillsInput !== ''
+    ) {
+      this.skillsData.push(this.skillsInput);
+    }
     this.skillsInput = '';
   }
   onRemoveSkill(skill: any) {

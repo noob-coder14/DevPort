@@ -59,7 +59,7 @@
               [ngModelOptions]="{ standalone: true }"
             />
             <button
-              class="btn text-white bg-emerald-900 p-2 mt-4 mb-4 rounded-sm"
+              class="btn text-white bg-teal-600 p-2 mt-4 mb-4 rounded-sm"
               (click)="onAddSkills()"
             >
               Add Skill
@@ -72,7 +72,7 @@
             >
               <div
                 (click)="onRemoveSkill(this.skill)"
-                class="px-2 py-1.5 mb-2 rounded-md text-emerald-900 bg-white border-emerald-900 border font-semibold text-sm flex align-center w-max cursor-pointer active:bg-gray-300 transition duration-300 ease"
+                class="px-2 py-1.5 mb-2 rounded-md text-teal-600 bg-white border-teal-600 border font-semibold text-sm flex align-center w-max cursor-pointer active:bg-gray-300 transition duration-300 ease"
               >
                 {{ skill }}
                 <button class="bg-transparent hover focus:outline-none">
@@ -97,7 +97,7 @@
           </div>
         </div>
 
-        <div class="flex items-center justify-center xl:w-5/12">
+        <!-- <div class="flex items-center justify-center xl:w-5/12">
           <label
             for="dropzone-file"
             class="flex flex-col items-center justify-center w-full h-36 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"
@@ -135,7 +135,7 @@
               class="hidden"
             />
           </label>
-        </div>
+        </div> -->
       </div>
       <h3></h3>
     </div>
@@ -426,7 +426,7 @@
     <div *ngSwitchCase="'projects'">
       <!-- <app-projects-dashboard formGroupName="basicInfo"></app-projects-dashboard> -->
 
-      <div formGroupName="projects" class="self-center pt-10 w-5/12">
+      <div formGroupName="projects" class="self-center pt-10 w-5/12 pl-12">
         <h2 class="underline">Projects</h2>
         <div>
           <div class="mb-3">

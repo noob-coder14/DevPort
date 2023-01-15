@@ -15,13 +15,13 @@ export class HrClientComponent implements OnInit {
   // skills = ['All','React','Angular','NodeJS','MongoDB','.NET']
 
 
-  
+
 
   constructor(
     private profileData: ServiceService,
     private router: ActivatedRoute
   ) {
-         
+
   }
 
   ngOnInit(): void {
@@ -36,7 +36,7 @@ export class HrClientComponent implements OnInit {
             }
         }
     }
-     
+
     return false;
 }
 
@@ -64,39 +64,40 @@ export class HrClientComponent implements OnInit {
       );
     }
   }
-  
+
 
   selectFilter(skillName: String) {
-    
+
     if(this.filterSelectedArray.includes(skillName)){
       const index = this.filterSelectedArray.indexOf(skillName)
       if(index>-1){
-        this.filterSelectedArray.splice(index, 1); 
+        this.filterSelectedArray.splice(index, 1);
       }
     }
     else{
       this.filterSelectedArray.push(skillName);
     }
-    
+
   }
 
   skillClickEvent(name: string) {
     const newList = this.skills.map(skill => {
       if (skill.name === name) {
         skill.status = !skill.status;
-      } 
+      }
       return skill
     })
 
     this.skills = newList;
-  }      
+  }
   individualProfileClick(id:String){
     const ProfileId = id
     const profileLink = `http://localhost:4200/web-view/${id}`
     console.log(profileLink)
   }
-  getImage(x:string){
-    this.profileData.getImage(x)
+  getPPImage(x:string){
+    const githubProfile = "https://api.github.com/users/"+x
+    console.log(githubProfile)
   }
 }
 

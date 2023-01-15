@@ -28,6 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './pages/signin/login/login.component';
 import { SignupComponent } from './pages/signin/signup/signup/signup.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { LandingComponent } from './pages/landing/landing.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     LoginComponent,
     SignupComponent,
     NavbarComponent,
+    LandingComponent,
   ],
   imports: [
     BrowserModule,
