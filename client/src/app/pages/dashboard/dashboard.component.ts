@@ -18,7 +18,7 @@ import { profile } from '../../interfaces/profile';
 export class DashboardComponent {
   profileInfo!: any;
   navElements = 'basic-info';
-  profileID: String = '';
+  profileID: any = '';
   // skillsData = [''];
   skillsInput: string = '';
   skillExists: string = '';
@@ -99,9 +99,10 @@ export class DashboardComponent {
     private router: ActivatedRoute  ) {}
 
   ngOnInit(): void {
-    this.profileID = this.router.snapshot.params['id'];
+    this.profileID = localStorage.getItem("userId");
     console.log('Profile ID : ', this.profileID);
     this.getProfile();
+    
     // const userStr = localStorage.getItem('user');
     // if(userStr){
     //   const user = JSON.parse(userStr);

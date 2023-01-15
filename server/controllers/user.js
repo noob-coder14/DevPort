@@ -4,44 +4,46 @@ const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken');
 const { response } = require("express");
 const secret = "shuhat3231"
+
+
 async function postUser(req, res) {
 const email = ""
     try {
         console.log("postuser")
         const salt = await bcrypt.genSalt(10)   
         const hashedPassword = await bcrypt.hash(req.body.password, salt)
-
         const existingUser = await User.findOne({ email: req.body.email });
+
         if (existingUser){
-            console.log('Got an error in the register controller')
+            console.log('Got an error in the register controller');
+            console.log("Existing User : ",existingUser);
             return res
                     .status(400)
                     .send({ error: '401', message: 'User already exists' });
         }
         const user = new Profile({
-            'basicInfo.email': req.body.email,
-            // password: hashedPassword
+            basicInfo:{
+              email: req.body.email
+            }
         })
-
         const userPass = new User({
             email: req.body.email,
             password: hashedPassword
         })
-
+        console.log("Reached to Line # 33")
         await user.save()
-        const {_id} = await userPass.save()
-        
-        const accessToken = jwt.sign({ _id }, secret, { expiresIn: "7d" });
+        console.log("Profile : ",user)
+        const registeredUser = await userPass.save()
+        console.log("User Id : ",registeredUser._id.toString());
+        const accessToken = jwt.sign({ _id: registeredUser._id.toString() }, secret, { expiresIn: "7d" });
+        console.log("AccessToken : ",accessToken)
         res.setHeader("Authorization","Bearer "+accessToken)
-        res.send("Successfully added user")
-    //   console.log("Request Body : ",req.body.basicInfo.skillsData)
-    //   const result = await Profile.create(req.body);
-    //   console.log("Response Body : ",result.basicInfo)
-    //   res.status(201);
-    //   res.send(result);
+        res.status(200)
+        res.send({ code: '200', message: 'User Created Successfully !', userId: user._id.toString() })
+
     } catch (error) {
-      res.status(500);
       console.log(error);
+      res.status(500);
       res.send("Can't create users")
     }
 
@@ -87,6 +89,7 @@ async function loginUser (req, res){
     } 
     
     const user = await User.findOne({ email: email }); 
+    const profileData = await Profile.find({ 'basicInfo.email': email }); 
     if(user) {
       const checkPass = await bcrypt.compare(password, user.password);
       if (checkPass) {
@@ -94,7 +97,7 @@ async function loginUser (req, res){
         res
           .setHeader("Authorization", "Bearer " + accessToken)
           .status(200)
-          .send({ status: '200', message: 'Successfully LOGGED IN',user});
+          .send({ status: '200', message: 'Successfully LOGGED IN',user:profileData[0]});
       } else {
         res
           .status(401)

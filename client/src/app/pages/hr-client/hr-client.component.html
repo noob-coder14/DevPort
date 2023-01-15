@@ -3,67 +3,18 @@
     <h2 class="mb-10">Select the skills you are looking for:</h2>
     <div class="flex gap-4 mb-24 flex-wrap">
       <button
-      type="button"
-      *ngFor="let skill of skills"
-      (click)="skillClickEvent(skill.name)"
-        [ngClass]="this.skill.status? 
-        'inline-block px-6 py-2.5 bg-gray-800 text-white font-medium text-xs leading-tight rounded-full shadow-md hover:bg-gray-900 hover:shadow-lg focus:bg-gray-900 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-900 active:shadow-lg transition duration-150 ease-in-out':
-        'inline-block px-6 py-2 border-2 border-gray-800 text-gray-800 font-medium text-xs leading-tight rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out'"
-      (click)="selectFilter(skill.name)"
-    >
-      {{skill.name}}
-    </button>
-      <!-- <button
         type="button"
-        (click)="skillClickEvent()"
-        [ngClass]="status? 
-        'inline-block px-6 py-2.5 bg-gray-800 text-white font-medium text-xs leading-tight rounded-full shadow-md hover:bg-gray-900 hover:shadow-lg focus:bg-gray-900 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-900 active:shadow-lg transition duration-150 ease-in-out':
-        'inline-block px-6 py-2 border-2 border-gray-800 text-gray-800 font-medium text-xs leading-tight rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out'"
-        (click)="selectFilter('React')"
+        *ngFor="let skill of skills"
+        (click)="skillClickEvent(skill.name)"
+        [ngClass]="
+          this.skill.status
+            ? 'inline-block px-6 py-2.5 bg-gray-800 text-white font-medium text-xs leading-tight rounded-full shadow-md hover:bg-gray-900 hover:shadow-lg focus:bg-gray-900 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-900 active:shadow-lg transition duration-150 ease-in-out'
+            : 'inline-block px-6 py-2 border-2 border-gray-800 text-gray-800 font-medium text-xs leading-tight rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out'
+        "
+        (click)="selectFilter(skill.name)"
       >
-        React
+        {{ skill.name }}
       </button>
-      <button
-        type="button"
-        (click)="skillClickEvent()"
-        [ngClass]="status? 
-        'inline-block px-6 py-2.5 bg-gray-800 text-white font-medium text-xs leading-tight rounded-full shadow-md hover:bg-gray-900 hover:shadow-lg focus:bg-gray-900 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-900 active:shadow-lg transition duration-150 ease-in-out':
-        'inline-block px-6 py-2 border-2 border-gray-800 text-gray-800 font-medium text-xs leading-tight rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out'"
-        (click)="selectFilter('Angular')"
-      >
-        Angular
-      </button>
-      <button
-        type="button"
-        (click)="skillClickEvent()"
-        [ngClass]="status? 
-        'inline-block px-6 py-2.5 bg-gray-800 text-white font-medium text-xs leading-tight rounded-full shadow-md hover:bg-gray-900 hover:shadow-lg focus:bg-gray-900 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-900 active:shadow-lg transition duration-150 ease-in-out':
-        'inline-block px-6 py-2 border-2 border-gray-800 text-gray-800 font-medium text-xs leading-tight rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out'"
-        (click)="selectFilter('NodeJS')"
-      >
-        NodeJS
-      </button>
-      <button
-        type="button"
-        (click)="skillClickEvent()"
-        [ngClass]="status? 
-        'inline-block px-6 py-2.5 bg-gray-800 text-white font-medium text-xs leading-tight rounded-full shadow-md hover:bg-gray-900 hover:shadow-lg focus:bg-gray-900 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-900 active:shadow-lg transition duration-150 ease-in-out':
-        'inline-block px-6 py-2 border-2 border-gray-800 text-gray-800 font-medium text-xs leading-tight rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out'"
-        (click)="selectFilter('MongoDB')"
-      >
-        MongoDB
-      </button>
-      
-      <button
-        type="button"
-        (click)="skillClickEvent()"
-        [ngClass]="status? 
-        'inline-block px-6 py-2.5 bg-gray-800 text-white font-medium text-xs leading-tight rounded-full shadow-md hover:bg-gray-900 hover:shadow-lg focus:bg-gray-900 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-900 active:shadow-lg transition duration-150 ease-in-out':
-        'inline-block px-6 py-2 border-2 border-gray-800 text-gray-800 font-medium text-xs leading-tight rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out'"
-      >
-        .NET
-      </button> -->
-      
     </div>
 
     <div class="flex flex-wrap gap-x-1 gap-y-2">
@@ -75,18 +26,20 @@
           <img
             class="w-24 h-24 mb-3 rounded-full shadow-lg"
             src=""
-            alt={{profile.userAccInfo.githubLink}}
+            alt="{{ profile.userAccInfo.githubLink }}"
           />
           <span class="mb-1 text-xl text-gray-900 dark:text-white">
-            {{profile.basicInfo.fullname}}
+            {{ profile.basicInfo.fullname }}
           </span>
-          <span class="text-sm text-gray-500 dark:text-gray-400"
-            >{{profile.experiences.jobRole1}}</span
+          <span class="text-sm text-gray-500 dark:text-gray-400">{{
+            profile.experiences.jobRole1
+          }}</span>
+          <button
+            (click)="individualProfileClick(profile.basicInfo._id)"
+            class="flex mt-2 space-x-3 md:mt-4"
           >
-          <button (click)="individualProfileClick(profile.basicInfo._id)" class="flex mt-2 space-x-3 md:mt-4">
             <a
-            [routerLink]="['../web-view',profile.basicInfo._id]"
-            
+              [routerLink]="['../web-view', profile.basicInfo._id]"
               class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               >See Full Profile</a
             >
