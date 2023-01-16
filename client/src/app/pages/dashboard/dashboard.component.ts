@@ -30,6 +30,7 @@ export class DashboardComponent {
       //   Validators.minLength(4),
       // ]),
       fullname: new FormControl(''),
+      jobTitle: new FormControl(''),
       email: new FormControl(''),
       careerObj: new FormControl(''),
       pphoto: new FormControl(''),

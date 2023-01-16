@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 
 const basicInfoSchema = mongoose.Schema({
   fullname: String,
+  jobTitle: String,
   email: String,
   careerObj: String,
   // pphoto: String,

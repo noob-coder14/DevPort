@@ -23,11 +23,11 @@
                 <!-- <div class="profile-background"></div> -->
                 <div class="flex-col mt-12">
                     <div class="self-center border-white relative flex justify-center">
-                        <img class="rounded-full h-80 w-80 " src={{gitImg}} alt="name">
+                        <img class="rounded-full h-72 w-72 " src={{gitImg}} alt="name">
                     </div>
-                    <div class="mt-8">
-                        <h1 class="profile-name" id="nombre">{{profileInfo.basicInfo.fullname}}</h1>
-                        <h2 class="profile-profession">Web Developer</h2>
+                    <div class="mt-4">
+                        <div class="profile-name text-xl" id="nombre">{{profileInfo.basicInfo.fullname}}</div>
+                        <h2 class="profile-profession">{{profileInfo.basicInfo.email}}</h2>
                         <div class="profile-social" id="profile-social">
                         <!-- <a href="www.dribbble.com" class="fab fa-dribbble"></a> -->
                         <a href="www.twitter.com" class="fab fa-twitter"></a>
@@ -36,12 +36,13 @@
                         <a href="www.stackoverflow.com" class="fab fa-stack-overflow"></a>
                     </div>
                     </div>
-                    
+                    <div class="flex justify-center mt-2">
+                        <img src="{{'https://github-readme-stats.vercel.app/api/top-langs?username='+profileInfo.userAccInfo.githubLink+'&show_icons=true&locale=en&layout=compact'}}">
+                        <!-- <a href="/myCV.txt" download>DOWNLOAD CV <i class="fas fa-download"></i></a>
+                        <a href="#contact">CONTACT ME <i class="fas fa-arrow-right"></i></a> -->
+                    </div>
                 </div>
-                <!-- <div class="profile-buttons">
-                    <a href="/myCV.txt" download>DOWNLOAD CV <i class="fas fa-download"></i></a>
-                    <a href="#contact">CONTACT ME <i class="fas fa-arrow-right"></i></a>
-                </div> -->
+                
             </section>
 
 
@@ -78,7 +79,7 @@
                             <div class="flex gap-4">
                                 <div class="p-6 w-full rounded-lg shadow-lg  bg-green-50 ">
                                     <h4 class="text-center text-gray-900  text-xl leading-tight mb-0">{{leetcodeInfo.acceptanceRate}}%</h4>
-                                    <h5>Contribution Points</h5>
+                                    <h5>Acceptance Rate</h5>
                                 </div>
                                 <div class=" p-6 w-full rounded-lg shadow-lg bg-teal-50">
                                     <h4 class="text-center text-gray-900 text-xl  leading-tight font-medium mb-2">{{leetcodeInfo.contributionPoints}}</h4>
@@ -94,49 +95,23 @@
                     </div>
 
 
-                    <!-- <article class="about-services">
-                        <h3 class="title">My Services</h3>
-                        <div class="line-left">
-                            <article class="line-down">
-                                <div class="fas fa-code"></div>
-                                <h4>WEB DEVELOPMENT</h4>
-                                <p>Modern and mobile-ready website that will help you reach all of your marketing.</p>
-                            </article>
-                            <article class="line-down">
-                                <div class="fas fa-music"></div>
-                                <h4>MUSIC WRITING</h4>
-                                <p>Music copying, transcription, arranging and composition services.</p>
-                            </article>
-                            <article>
-                                <div class="fas fa-bullhorn"></div>
-                                <h4>ADVETISING</h4>
-                                <p>Advertising services include television, radio, print, mail and web.</p>
-                            </article>
-                            <article>
-                                <div class="fas fa-gamepad"></div>
-                                <h4>GAME DEVELOPMENT</h4>
-                                <p>Developing memorable and unique mobile android, ios games.</p>
-                            </article>
-                        </div>
-                    </article> -->
-
                     <article class="resume-lines">
                         <section class="resume-line line-left">
                             <h4 class="line-down"> <i class="fas fa-briefcase"></i> Experience</h4>
                             <article  *ngIf="profileInfo.experiences.jobRole1" class="line-down">
-                                <div class="date active">2013 - PRESENT</div>
+                                
                                 <h5 class="name">{{profileInfo.experiences.jobRole1}}</h5>
                                 <h6 class="company">{{profileInfo.experiences.companyName1}}</h6>
                                 <p>{{profileInfo.experiences.jobDescription1}}</p>
                             </article>
                             <article  *ngIf="profileInfo.experiences.jobRole2" class="line-down">
-                                <div class="date">2011 - 2012</div>
+                                
                                 <h5 class="name">{{profileInfo.experiences.jobRole2}}</h5>
                                 <h6 class="company">{{profileInfo.experiences.companyName2}}</h6>
                                 <p>{{profileInfo.experiences.jobDescription2}}</p>
                             </article>
                             <article *ngIf="profileInfo.experiences.jobRole3">
-                                <div class="date">2009 - 2010</div>
+                                
                                 <h5 class="name">{{profileInfo.experiences.jobRole3}}</h5>
                                 <h6 class="company">{{profileInfo.experiences.companyName3}}</h6>
                                 <p>{{profileInfo.experiences.jobDescription3}}</p>
@@ -145,19 +120,19 @@
                         <section class="resume-line line-left">
                             <h4 class="line-down"> <i class="fas fa-university"></i> Education</h4>
                             <article *ngIf="profileInfo.education.eduLevel1" class="line-down">
-                                <div class="date">2006 - 2008</div>
+                                
                                 <h5 class="name">{{profileInfo.education.eduLevel1}}</h5>
                                 <h6 class="company">{{profileInfo.education.instName1}}</h6>
                                 <p>{{profileInfo.education.eduDescription1}}</p>
                             </article>
                             <article *ngIf="profileInfo.education.eduLevel2" class="line-down">
-                                <div class="date">2005 - 2006</div>
+                                
                                 <h5 class="name">{{profileInfo.education.eduLevel2}}</h5>
                                 <h6 class="company">{{profileInfo.education.instName2}}</h6>
                                 <p>{{profileInfo.education.eduDescription2}}</p>
                             </article>
                             <article *ngIf="profileInfo.education.eduLevel3">
-                                <div class="date">2004 - 2005</div>
+                                
                                 <h5 class="name">{{profileInfo.education.eduLevel3}}</h5>
                                 <h6 class="company">{{profileInfo.education.instName3}}</h6>
                                 <p>{{profileInfo.education.eduDescription3}}</p>
@@ -169,8 +144,8 @@
                         <h3 class="title">Projects</h3>
                         <div *ngIf="profileInfo.projects.projectTitle1" class="ml-6">
                             <div class="text-lg mb-2">{{profileInfo.projects.projectTitle1}}</div>
-                            <iframe class="w-5/6 h-64"  src="https://www.youtube.com/embed/8mz0WgZTI9U"  frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
+                            <!-- <iframe class="w-5/6 h-64"  src="https://www.youtube.com/embed/8mz0WgZTI9U"  frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
+                            <iframe class="w-5/6 h-64"  src="https://www.youtube.com/embed/RenQsbcurEQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                             <div class="text-md mt-2">{{profileInfo.projects.projectDescription1}}</div>
 
                           
@@ -178,30 +153,10 @@
                     </div>
 
                 
-                        <!-- <h3 class="title">Get in Touch</h3>
-                        <div class="contact-information line-left">
-                          <div>
-                            <span>ADDRESS . . . . </span> California, USA
-                          </div>
-                          <div>
-                            <span>EMAIL . . . . </span> adlard@example.com
-                          </div>
-                          <div>
-                            <span>PHONE . . . . </span> +123 654 78900
-                          </div>
-                          <div>
-                            <span>FREELANCE . . . . </span> Available
-                          </div>
-                        </div> -->
+                        
 
 
                 </section>
-
-
-
-
-          
-
 
         </main>
     </div>
