@@ -29,6 +29,9 @@ import { LoginComponent } from './pages/signin/login/login.component';
 import { SignupComponent } from './pages/signin/signup/signup/signup.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LandingComponent } from './pages/landing/landing.component';
+import { DashboardComponentsComponent } from './components/dashboard-components/dashboard-components.component';
+import { HrClientComponentsComponent } from './components/hr-client-components/hr-client-components.component';
+import { WebViewComponentsComponent } from './components/web-view-components/web-view-components.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +58,9 @@ import { LandingComponent } from './pages/landing/landing.component';
     SignupComponent,
     NavbarComponent,
     LandingComponent,
+    DashboardComponentsComponent,
+    HrClientComponentsComponent,
+    WebViewComponentsComponent
   ],
   imports: [
     BrowserModule,
