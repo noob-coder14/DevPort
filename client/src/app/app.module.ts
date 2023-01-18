@@ -32,6 +32,7 @@ import { LandingComponent } from './pages/landing/landing.component';
 import { DashboardComponentsComponent } from './components/dashboard-components/dashboard-components.component';
 import { HrClientComponentsComponent } from './components/hr-client-components/hr-client-components.component';
 import { WebViewComponentsComponent } from './components/web-view-components/web-view-components.component';
+import { CustombuttonComponent } from './components/custombutton/custombutton.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { WebViewComponentsComponent } from './components/web-view-components/web
     LandingComponent,
     DashboardComponentsComponent,
     HrClientComponentsComponent,
-    WebViewComponentsComponent
+    WebViewComponentsComponent,
+    CustombuttonComponent
   ],
   imports: [
     BrowserModule,
