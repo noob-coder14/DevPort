@@ -6,14 +6,14 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { ServiceService } from 'src/app/services/service.service';
+import { ApiService } from 'src/app/services/api.service';
 import { ActivatedRoute, Route } from '@angular/router';
 import { profile } from '../../interfaces/profile';
 
 @Component({
   selector: 'app-dashboard-components',
   templateUrl: './dashboard-components.component.html',
-  styleUrls: ['./dashboard-components.component.css']
+  styleUrls: ['./dashboard-components.component.css'],
 })
 export class DashboardComponentsComponent {
   profileInfo!: any;
@@ -96,7 +96,7 @@ export class DashboardComponentsComponent {
 
   constructor(
     private formBuilder: FormBuilder,
-    private profileData: ServiceService,
+    private profileData: ApiService,
     private router: ActivatedRoute
   ) {}
 

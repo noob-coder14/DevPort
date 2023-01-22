@@ -10,11 +10,11 @@ export class NavbarComponent {
   constructor( private route : Router){}
   btnText = "Log Out"
   localStore = localStorage.getItem("userId")
-  
+
   logout() {
     console.log("logout")
-    console.log(localStorage.getItem("userId"))
-    localStorage.clear();
-    this.route.navigate(['login']);
+    // console.log(localStorage.getItem("userId"))
+    // localStorage.clear();
+    // this.route.navigate(['login']);
   }
 }

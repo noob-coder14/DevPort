@@ -6,7 +6,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { ServiceService } from 'src/app/services/service.service';
+import { ApiService } from 'src/app/services/api.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -21,7 +21,7 @@ export class SignupComponent {
   });
   constructor(
     private formBuilder: FormBuilder,
-    private profileData: ServiceService,
+    private profileData: ApiService,
     private router: ActivatedRoute,
     private routerJump: Router
   ) {}
@@ -30,10 +30,9 @@ export class SignupComponent {
 
   handleSubmit() {
     let signInFormValue: any = this.signInForm.value;
-    this.profileData.postRegData(signInFormValue).subscribe(
-      (res: any) => {
+    this.profileData.postRegData(signInFormValue).subscribe((res: any) => {
       console.log(res);
-      localStorage.setItem("userId",res.userId)
+      localStorage.setItem('userId', res.userId);
       this.routerJump.navigate([`/dashboard`]);
     });
   }
