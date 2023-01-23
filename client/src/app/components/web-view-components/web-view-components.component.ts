@@ -38,7 +38,7 @@ export class WebViewComponentsComponent {
       this.imgSrc =
         'https://ghchart.rshah.org/' + this.profileInfo.userAccInfo.githubLink;
       // this.leetCode = "https://leetcode-stats-api.herokuapp.com/"+this.profileInfo.leetcodeLink
-      console.log(this.profileInfo);
+      console.log('profileInfo', this.profileInfo);
       // console.log(this.imgSrc);
 
       // this.profileData.getLeetCodeData(this.profileInfo.leetcodeLink)
@@ -72,7 +72,7 @@ export class WebViewComponentsComponent {
     this.profileData
       .getImage(this.profileInfo.userAccInfo.githubLink)
       .subscribe((res: any) => {
-        console.log('github link res :', res);
+        // console.log('github link res :', res);
         this.gitImg = res.avatar_url;
         // return this.gitImg
       });
@@ -86,46 +86,4 @@ export class WebViewComponentsComponent {
     // this.getProfile();
   }
 
-  // about: any;
-  // resume: any;
-  // contact: any;
-  // getAbout: any;
-  // getResume: any;
-  // getContact: any;
-
-  //   removeClass() {
-  //     // Links
-  //     this.getAbout.classList.remove('selected');
-  //     this.getResume.classList.remove('selected');
-  //     this.getContact.classList.remove('selected');
-  //     // Sections
-  //     this.about.classList.remove('view');
-  //     this.resume.classList.remove('view');
-  //     this.contact.classList.remove('view');
-  // }
-
-  // getAboutSec() {
-  //     if (window.innerWidth > 1040) {
-  //         this.removeClass();
-  //         this.about.classList.add('view');
-  //         this.getAbout.classList.add('selected');
-  //     }
-
-  // }
-  // getResumeSec() {
-  //     if (window.innerWidth > 1040) {
-  //       // event.preventDefault();
-  //         this.removeClass();
-  //         this.resume.classList.add('view');
-  //         this.getResume.classList.add('selected');
-  //     }
-  // }
-  // getContactSec() {
-  //     if (window.innerWidth > 1040) {
-  //       // event.preventDefault();
-  //         this.removeClass();
-  //         this.contact.classList.add('view');
-  //         this.getContact.classList.add('selected');
-  //     }
-  // }
 }
