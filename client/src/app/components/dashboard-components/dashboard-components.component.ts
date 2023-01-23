@@ -120,6 +120,7 @@ export class DashboardComponentsComponent {
 
   setNavElements(clickedItem: string) {
     this.navElements = clickedItem;
+    console.log('from dashboard component ', this.navElements);
   }
 
   getProfile(): void {

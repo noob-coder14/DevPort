@@ -23,7 +23,6 @@ import { ProjectsWebComponent } from './components/web-view-components/projects-
 import { UserAccountsWebComponent } from './components/web-view-components/user-accounts-web/user-accounts-web.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgxDropzoneModule } from 'ngx-dropzone';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './pages/signin/login/login.component';
 import { SignupComponent } from './pages/signin/signup/signup/signup.component';
@@ -70,7 +69,6 @@ import { CustombuttonComponent } from './components/custombutton/custombutton.co
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    NgxDropzoneModule,
     FormsModule,
   ],
   providers: [],
