@@ -94,10 +94,11 @@ async function loginUser (req, res){
       const checkPass = await bcrypt.compare(password, user.password);
       if (checkPass) {
         const accessToken = jwt.sign({ _id: user._id }, secret, { expiresIn: "7d" });
+        console.log(accessToken)
         res
           .setHeader("Authorization", "Bearer " + accessToken)
           .status(200)
-          .send({ status: '200', message: 'Successfully LOGGED IN',user:profileData[0]});
+          .send({ status: '200', message: 'Successfully LOGGED IN',user:profileData[0], token:  `Bearer ${accessToken}` });
       } else {
         res
           .status(401)
