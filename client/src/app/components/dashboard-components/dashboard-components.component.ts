@@ -22,72 +22,80 @@ export class DashboardComponentsComponent {
   // skillsData = [''];
   skillsInput: string = '';
   skillExists: string = '';
-  profileForm = new FormGroup({
-    basicInfo: new FormGroup({
+  profileForm = this.formBuilder.group({
+    basicInfo: this.formBuilder.group({
       // fullname: new FormControl('',
       // [
       //   Validators.required,
       //   Validators.minLength(4),
       // ]),
-      fullname: new FormControl(''),
-      jobTitle: new FormControl(''),
-      email: new FormControl(''),
-      careerObj: new FormControl(''),
-      pphoto: new FormControl(''),
+      fullname: [],
+      jobTitle: [],
+      email: [],
+      careerObj: [],
+      pphoto: [],
     }),
 
-    userAccInfo: new FormGroup({
-      githubLink: new FormControl(''),
-      soLink: new FormControl(''),
-      leetcodeLink: new FormControl(''),
+    userAccInfo: this.formBuilder.group({
+      githubLink: [],
+      soLink: [],
+      leetcodeLink: [],
     }),
 
-    education: new FormGroup({
-      eduLevel1: new FormControl(''),
-      instName1: new FormControl(''),
-      eduDescription1: new FormControl(''),
-      eduLevel2: new FormControl(''),
-      instName2: new FormControl(''),
-      eduDescription2: new FormControl(''),
-      eduLevel3: new FormControl(''),
-      instName3: new FormControl(''),
-      eduDescription3: new FormControl(''),
+    education: this.formBuilder.group({
+      eduLevel1: [],
+      instName1: [],
+      eduDescription1: [],
+      eduLevel2: [],
+      instName2: [],
+      eduDescription2: [],
+      eduLevel3: [],
+      instName3: [],
+      eduDescription3: [],
     }),
 
-    experiences: new FormGroup({
-      companyName1: new FormControl(''),
-      jobRole1: new FormControl(''),
-      // job_tags: new FormControl(''),
-      jobDescription1: new FormControl(''),
+    experiences: this.formBuilder.group({
+      companyName1: [],
+      jobRole1: [],
+      // job_tags: [],
+      jobDescription1: [],
 
-      companyName2: new FormControl(''),
-      jobRole2: new FormControl(''),
-      // job_tags: new FormControl(''),
-      jobDescription2: new FormControl(''),
+      companyName2: [],
+      jobRole2: [],
+      // job_tags: [],
+      jobDescription2: [],
 
-      companyName3: new FormControl(''),
-      jobRole3: new FormControl(''),
-      // job_tags: new FormControl(''),
-      jobDescription3: new FormControl(''),
+      companyName3: [],
+      jobRole3: [],
+      // job_tags: [],
+      jobDescription3: [],
     }),
 
-    projects: new FormGroup({
-      projectTitle1: new FormControl(''),
-      demovideo1: new FormControl(''),
-      // project_tags: new FormControl(''),
-      projectDescription1: new FormControl(''),
+    projects: this.formBuilder.group({
+      projectTitle1: [],
+      demovideo1: [],
+      // project_tags: [],
+      projectDescription1: [],
 
-      projectTitle2: new FormControl(''),
-      demovideo2: new FormControl(''),
-      // project_tags: new FormControl(''),
-      projectDescription2: new FormControl(''),
+      projectTitle2: [],
+      demovideo2: [],
+      // project_tags: [],
+      projectDescription2: [],
 
-      projectTitle3: new FormControl(''),
-      demovideo3: new FormControl(''),
-      // project_tags: new FormControl(''),
-      projectDescription3: new FormControl(''),
+      projectTitle3: [],
+      demovideo3: [],
+      // project_tags: [],
+      projectDescription3: [],
     }),
   });
+
+  educationGroup(): FormGroup {
+    return this.formBuilder.group({
+      eduLevel: [],
+      instName: [],
+      eduDescription: [],
+    });
+  }
 
   data: any;
   value: any;

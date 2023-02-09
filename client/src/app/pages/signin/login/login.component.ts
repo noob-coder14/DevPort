@@ -57,9 +57,10 @@ export class LoginComponent {
       this.profileData.postLoginData(loginFormValue).subscribe({
         next: (res: any) => {
           console.log('Res :', res.body);
-          localStorage.setItem('accessToken', res.headers.get('authorization'));
+          localStorage.setItem('token', JSON.stringify(res.body.token))
+         // localStorage.setItem('accessToken', res.headers.get('authorization'));
           localStorage.setItem('user', JSON.stringify(res.body.user));
-          localStorage.setItem('userId', res.body.user._id);
+          //localStorage.setItem('userId', res.body.user._id);
           this.routerJump.navigate([`/dashboard`]);
         },
         error: (error) => (this.errorMsg = error.error),
